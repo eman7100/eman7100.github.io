@@ -2,81 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Interface</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
-<div class="chat-container">
-    <div id="chat-messages" class="chat-messages">
-        <!-- Chat messages will be displayed here -->
-    </div>
-    <form id="chat-form" class="chat-form">
-        <input type="text" id="chat-input" class="chat-input" placeholder="Type your message here..." required>
-        <button type="submit" class="send-button">Send</button>
-    </form>
-</div>
-
-<script src="script.js"></script>
+    <!-- Your chatbot HTML goes here -->
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.7.12/umd.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-.chat-container {
-    width: 300px;
-    height: 500px;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-}
-.chat-messages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-    border-bottom: 1px solid #ccc;
-}
-.chat-form {
-    display: flex;
-}
-.chat-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-right: 1px solid #ccc;
-}
-.send-button {
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-}
-.send-button:hover {
-    background-color: #0056b3;
-}
-document.getElementById('chat-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form from submitting normally
-    var inputField = document.getElementById('chat-input');
-    var message = inputField.value;
-    displayMessage(message);
-    inputField.value = ''; // Clear input field after sending
-});
 
-function displayMessage(message) {
-    var chatMessages = document.getElementById('chat-messages');
-    var messageElement = document.createElement('div');
-    messageElement.textContent = "You: " + message;
-    chatMessages.appendChild(messageElement);
-    
-    // Simulate a chatbot response
-    var responseElement = document.createElement('div');
-    responseElement.textContent = "Chatbot: Echoing - " + message;
-    setTimeout(() => chatMessages.appendChild(responseElement), 500); // Delay the bot response for realism
-}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">Ask AOU BF</div>
+                <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+                    <!-- Close Button -->
+                    <button id="close-btn" class="btn btn-primary btn-sm">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <!-- Language Toggle Button -->
+                    <button id="toggle-lang-btn" class="btn btn-primary btn-sm">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </div>
+                <div class="card-body" id="chat-box" style="height: 300px; overflow-y: auto;">
+                    <!-- Messages will be shown here -->
+                    <div id="welcome-message">
+                        Hi, I'm AOU best friend here to help you. I will do my best for you.
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="input-group">
+                        <input type="text" id="user-input" class="form-control" placeholder="Ask a question">
+                        <div class="input-group-append">
+                            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                            <button id="send-btn" class="btn btn-outline-secondary">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">  
